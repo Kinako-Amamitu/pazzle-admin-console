@@ -12,24 +12,24 @@ header('X-FRAME-OPTIONS:DENY');
 </head>
 <body>
 <div class="container text-center bg-primary-subtle" style="width: 500px">
-    <h2 class="display-5">▼{{$title}} ▼</h2>
+    <h2 class="display-5">▼ユーザー名▼</h2>
 </div>
 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
     <li><a href="/accounts/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
     <li><a href="/accounts/itemlist" class="nav-link px-2">アイテム一覧</a></li>
-    <li><a href="/accounts/haveList" class="nav-link px-2">所持アイテム一覧</a></li>
+    <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
 </ul>
 
-<form method="POST" action="/">
+<form method="POST" action="{{url('/')}}">
     <div class="col-md-3 text-end">
         <button type="submit" class="btn btn-outline-primary me-2">Logout</button>
         <input type="hidden" name="action" value="logout">
     </div>
 </form>
 <form method="POST" action="{{url('accounts/index')}}">
+    @csrf
     <table class="table table-bordered mx-auto p-2" style="width: 60%">
         <tr>
-            <th>ID</th>
             <th>アカウント名</th>
             <th>パスワードハッシュ</th>
         </tr>
@@ -37,7 +37,6 @@ header('X-FRAME-OPTIONS:DENY');
         @foreach ($accounts as $account)
             <tr>
 
-                <td>{{$account['id']}}</td>
                 <td>{{$account['name']}}</td>
                 <td>{{$account['password']}}</td>
 
@@ -45,14 +44,6 @@ header('X-FRAME-OPTIONS:DENY');
         @endforeach
 
     </table>
-</form>
-<!-- ログアウトボタン -->
-
-<form method="POST" action="index.php">
-    <div class="text-center">
-        <input type="submit" name="logout_btn" value="ログアウト">
-    </div>
-    <input type="hidden" name="action" value="logout">
 </form>
 
 

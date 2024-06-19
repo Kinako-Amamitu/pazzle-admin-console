@@ -14,9 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->$this->call(AccountsTableSeeder::class);
-
-        md5('password');
-        md5('Yoshodajobi2023');
+        $this->call(AccountsTableSeeder::class);
     }
 }

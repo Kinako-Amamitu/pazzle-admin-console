@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -9,20 +10,9 @@ class AccountController extends Controller
     //アカウント一覧表示
     public function index(Request $request)
     {
-        $title = 'アカウント一覧';
-        $data = [
-            [
-                'id' => 1,
-                'name' => 'テストさん',
-                'password' => '$3$3kdiel2',
-            ],
-            [
-                'id' => 2,
-                'name' => 'jobi',
-                'password' => '$9ui#2kdil',
-            ]
-        ];
-        return view('accounts/index', ['title' => $title, 'accounts' => $data]);
+        //テーブルのすべてのレコードを取得
+        $accounts = Account::ALL();
+        return view('accounts/index', ['accounts' => $accounts]);
     }
 
 

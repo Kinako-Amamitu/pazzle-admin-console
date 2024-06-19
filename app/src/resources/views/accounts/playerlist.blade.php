@@ -25,7 +25,7 @@ header('X-FRAME-OPTIONS:DENY');
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li><a href="/accounts/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
             <li><a href="/accounts/itemlist" class="nav-link px-2">アイテム一覧</a></li>
-            <li><a href="/accounts/haveList" class="nav-link px-2">所持アイテム一覧</a></li>
+            <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
         </ul>
 
         <form method="POST" action="/">
