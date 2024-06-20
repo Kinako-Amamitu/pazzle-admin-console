@@ -28,7 +28,8 @@ header('X-FRAME-OPTIONS:DENY');
             <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
         </ul>
 
-        <form method="POST" action="/">
+        <form method="POST" action="{{url('accounts/logout')}}">
+            @csrf
             <div class="col-md-3 text-end">
                 <button type="submit" class="btn btn-outline-primary me-2">Logout</button>
                 <input type="hidden" name="action" value="logout">
@@ -50,10 +51,10 @@ header('X-FRAME-OPTIONS:DENY');
     </tr>
 
 
-    @foreach ($playerdatas as $playerdata)
+    @foreach ($accounts as $playerdata)
         <tr>
             <td>{{$playerdata['id']}}</td>
-            <td>{{$playerdata['name']}}</td>
+            <td>{{$playerdata['player_name']}}</td>
             <td>{{$playerdata['level']}}</td>
             <td>{{$playerdata['exp']}}</td>
             <td>{{$playerdata['hp']}}</td>

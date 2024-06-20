@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Have;
 use App\Models\User;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,5 +16,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(AccountsTableSeeder::class);
+        $this->call(ItemsTableSeeder::class);
+        $this->call(PlayerTableSeeder::class);
+        $this->call(HaveTableSeeder::class);
+
     }
 }

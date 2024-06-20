@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Dologin::class, 'index']);
 Route::post('/', [Dologin::class, 'dologin'])->name('login');
-Route::post('accounts/dologin', [Dologin::class, 'logout']);
+Route::post('accounts/logout', [Dologin::class, 'logout']);
 Route::get('accounts/index', [AccountController::class, 'index']);
 Route::get('accounts/itemlist', [Itemlist::class, 'item']);
 Route::get('accounts/playerlist', [PlayerController::class, 'index']);

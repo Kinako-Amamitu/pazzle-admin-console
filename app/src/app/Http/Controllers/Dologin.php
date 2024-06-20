@@ -16,13 +16,22 @@ class Dologin extends Controller
     //ログインの処理
     public function dologin(Request $request)
     {
+        //ログインチェック
         $request->session()->put('login', true);
+        if (!$request->session()->exists('login')) {
+            //ログインにリダイレクト
+            return redirect('/');
+        }
+
+        //バリデーション
+        $validated = $request->validate([
+            'name' => ['required', 'min:4', 'max:20'],
+            'password' => ['required']
+        ]);
+
         //条件を指定して入手
         $accounts = Account::where('name', '=', $request['name'])->get();
-        //$validated = $request->validate([
-        //  'name' => ['required', 'min:4', 'max:20'],
-        //'password' => ['required']
-        //]);
+
         if (Hash::check($request['password'], $accounts[0]['password'])) {
             return redirect('accounts/index');
         } else {
@@ -35,6 +44,7 @@ class Dologin extends Controller
     public function logout(Request $request)
     {
         $request->session()->forget('login');
+        $request->session()->flush();
         return redirect('/');
     }
 }

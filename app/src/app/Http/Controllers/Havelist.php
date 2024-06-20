@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Have;
 use Illuminate\Http\Request;
 
 class Havelist extends Controller
@@ -9,22 +10,17 @@ class Havelist extends Controller
     //アイテム一覧表示
     public function have(Request $request)
     {
-        $title = '所持アイテム一覧';
-        $data = [
-            [
-                'id' => 1,
-                'pname' => 'jobi',
-                'iname' => '回復薬',
-                'have' => 10,
-            ],
-            [
-                'id' => 2,
-                'pname' => 'kida',
-                'iname' => 'パソコン',
-                'have' => 1,
-            ]
-        ];
-        return view('accounts/havelist', ['title' => $title, 'havedatas' => $data]);
+        if (!$request->session()->exists('login')) {
+            //ログインにリダイレクト
+            return redirect('/');
+        }
+        //テーブル結合してDBから入手
+        $haves = Have::join('players', 'haves.id', '=', 'players.id')
+            ->join('items', 'haves.id', '=', 'items.id')
+            ->select('haves.id', 'players.player_name', 'items.item_name', 'haves.have')
+            ->get();
+
+        return view('accounts/havelist', ['accounts' => $haves]);
     }
 
 }

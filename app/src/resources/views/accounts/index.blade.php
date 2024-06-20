@@ -20,7 +20,8 @@ header('X-FRAME-OPTIONS:DENY');
     <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
 </ul>
 
-<form method="POST" action="{{url('/')}}">
+<form method="POST" action="{{url('accounts/logout')}}">
+    @csrf
     <div class="col-md-3 text-end">
         <button type="submit" class="btn btn-outline-primary me-2">Logout</button>
         <input type="hidden" name="action" value="logout">
