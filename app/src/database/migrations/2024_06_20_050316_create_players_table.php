@@ -10,6 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        //プレイヤー一覧
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('player_name');

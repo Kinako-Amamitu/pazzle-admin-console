@@ -32,12 +32,13 @@ class Dologin extends Controller
         //条件を指定して入手
         $accounts = Account::where('name', '=', $request['name'])->get();
 
-        if (Hash::check($request['password'], $accounts[0]['password'])) {
+        if ($accounts->count() == 0) {
+            return redirect()->route('login', ['error' => 'invalid']);
+        } elseif (Hash::check($request['password'], $accounts[0]['password'])) {
             return redirect('accounts/index');
         } else {
             return redirect()->route('login', ['error' => 'invalid']);
         }
-
     }
 
     //ログアウト処理

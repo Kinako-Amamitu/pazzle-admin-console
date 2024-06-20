@@ -13,6 +13,7 @@ class HaveTableSeeder extends Seeder
      */
     public function run(): void
     {
+        //所持アイテム一覧
         Have::create([
             'have' => 10,
         ]);

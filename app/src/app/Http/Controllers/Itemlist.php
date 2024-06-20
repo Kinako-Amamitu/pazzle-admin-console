@@ -10,6 +10,7 @@ class Itemlist extends Controller
     //アイテム一覧表示
     public function item(Request $request)
     {
+        //ログインセッションチェック
         if (!$request->session()->exists('login')) {
             //ログインにリダイレクト
             return redirect('/');

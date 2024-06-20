@@ -13,6 +13,7 @@ class PlayerTableSeeder extends Seeder
      */
     public function run(): void
     {
+        //プレイヤー一覧
         Player::create([
             'player_name' => 'キダ',
             'level' => 10,

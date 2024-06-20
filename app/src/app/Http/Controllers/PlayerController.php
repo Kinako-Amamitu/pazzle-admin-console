@@ -10,6 +10,7 @@ class PlayerController extends Controller
     //プレイヤー一覧表示
     public function index(Request $request)
     {
+        //ログインセッションチェック
         if (!$request->session()->exists('login')) {
             //ログインにリダイレクト
             return redirect('/');

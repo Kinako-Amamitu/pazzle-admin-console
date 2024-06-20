@@ -10,6 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        //アイテムリスト
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');

@@ -10,6 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
+        //所持アイテム一覧
         Schema::create('haves', function (Blueprint $table) {
             $table->id();
             $table->integer('have');

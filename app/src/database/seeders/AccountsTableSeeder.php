@@ -14,6 +14,7 @@ class AccountsTableSeeder extends Seeder
      */
     public function run(): void
     {
+        //アカウント一覧
         Account::create([
             'name' => 'jobi',
             'password' => Hash::make('jobi')

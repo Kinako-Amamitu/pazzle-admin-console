@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //シーだーに呼び出し
         $this->call(AccountsTableSeeder::class);
         $this->call(ItemsTableSeeder::class);
         $this->call(PlayerTableSeeder::class);

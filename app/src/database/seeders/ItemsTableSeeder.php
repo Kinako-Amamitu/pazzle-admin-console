@@ -14,6 +14,7 @@ class ItemsTableSeeder extends Seeder
      */
     public function run(): void
     {
+        //アイテム一覧
         Item::create([
             'item_name' => '回復薬',
             'lot' => '消耗品',
