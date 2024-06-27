@@ -35,7 +35,7 @@ class Dologin extends Controller
         if ($accounts->count() == 0) {
             return redirect()->route('login', ['error' => 'invalid']);
         } elseif (Hash::check($request['password'], $accounts[0]['password'])) {
-            return redirect('accounts/index');
+            return redirect()->route('accounts.index');
         } else {
             return redirect()->route('login', ['error' => 'invalid']);
         }

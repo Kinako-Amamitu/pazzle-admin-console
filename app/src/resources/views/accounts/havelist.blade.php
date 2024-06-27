@@ -26,15 +26,17 @@ header('X-FRAME-OPTIONS:DENY');
             <li><a href="/accounts/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
             <li><a href="/accounts/itemlist" class="nav-link px-2">アイテム一覧</a></li>
             <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
-        </ul>
+            <li><a href="/accounts" class="nav-link px-2">ユーザー一覧</a></li>
+            <li><a href="/accounts/create" class="nav-link px-2">ユーザー登録</a></li>
 
-        <form method="POST" action="{{url('accounts/logout')}}">
-            @csrf
-            <div class="col-md-3 text-end">
-                <button type="submit" class="btn btn-outline-primary me-2">Logout</button>
-                <input type="hidden" name="action" value="logout">
-            </div>
-        </form>
+            <form method="POST" action="{{url('accounts/logout')}}">
+                @csrf
+                <div class="col-md-3 text-end">
+                    <button type="submit" class="btn btn-outline-primary me-2">Logout</button>
+                    <input type="hidden" name="action" value="logout">
+                </div>
+            </form>
+        </ul>
     </header>
 </div>
 <div class="container text-center bg-primary-subtle" style="width: 500px">

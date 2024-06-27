@@ -15,9 +15,9 @@ class Havelist extends Controller
             return redirect('/');
         }
         //テーブル結合してDBから入手
-        $haves = Have::join('players', 'haves.id', '=', 'players.id')
+        $haves = Have::join('users', 'haves.id', '=', 'users.id')
             ->join('items', 'haves.id', '=', 'items.id')
-            ->select('haves.id', 'players.player_name', 'items.item_name', 'haves.have')
+            ->select('haves.id', 'users.player_name', 'items.item_name', 'haves.have')
             ->get();
 
         return view('accounts/havelist', ['accounts' => $haves]);

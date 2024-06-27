@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Player;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PlayerController extends Controller
@@ -16,7 +16,7 @@ class PlayerController extends Controller
             return redirect('/');
         }
         //DBのすべての要素入手
-        $players = Player::all();
-        return view('accounts/playerlist', ['accounts' => $players]);
+        $users = User::all();
+        return view('accounts/playerlist', ['accounts' => $users]);
     }
 }

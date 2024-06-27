@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Player;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,11 +14,13 @@ class PlayerTableSeeder extends Seeder
     public function run(): void
     {
         //プレイヤー一覧
-        Player::create([
+        User::create([
             'player_name' => 'キダ',
             'level' => 10,
             'exp' => 100,
             'hp' => 100,
         ]);
+
+        User::factory(100)->create();
     }
 }
