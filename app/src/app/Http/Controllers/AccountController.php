@@ -48,7 +48,7 @@ class AccountController extends Controller
         return redirect()->route('accounts.index');
     }
 
-    //アカウント更新確認画面
+    //アカウント更新入力画面
     public function u_check(Request $request)
     {
         //条件を指定して入手
@@ -59,10 +59,19 @@ class AccountController extends Controller
     //アカウント更新処理
     public function update(Request $request)
     {
+        $request->validate([
+            'password' => ['required', 'confirmed']
+        ]);
         $account = Account::findOrFail($request['id']);
         $account['password'] = Hash::make($request['password']);
         $account->save();
-        return redirect()->route('accounts.index');
+        return redirect()->route('accounts.update_end', ['account' => $account]);
+    }
+
+    //アカウント更新完了処理
+    public function update_end(Request $request)
+    {
+        return view('accounts.index');
     }
 
     //アカウント一覧表示

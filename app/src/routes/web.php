@@ -23,7 +23,8 @@ Route::prefix('accounts')->name('accounts.')->controller(AccountController::clas
         Route::post('store', 'store')->name('store');   //accounts.store 登録処理
         Route::post('d_check', 'd_check')->name('d_check'); //accounts.d_check 削除確認
         Route::post('delete', 'delete')->name('delete');   //accounts.delete 削除処理
-        Route::post('u_check', 'u_check')->name('u_check'); //accounts.u_check 更新確認
+        Route::get('u_check', 'u_check')->name('u_check'); //accounts.u_check 更新確認
         Route::post('update', 'update')->name('update');   //accounts.update 更新処理
         Route::post('cancel', 'cancel')->name('cancel');   //accounts.cancel キャンセル処理
+        Route::post('update_end', 'update_end')->name('update_end');   //accounts.update_end更新完了処理
     });

@@ -27,8 +27,8 @@ header('X-FRAME-OPTIONS:DENY');
             <li><a href="/accounts/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
             <li><a href="/accounts/itemlist" class="nav-link px-2">アイテム一覧</a></li>
             <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
-            <li><a href="/accounts" class="nav-link px-2">ユーザー一覧</a></li>
-            <li><a href="/accounts/create" class="nav-link px-2">ユーザー登録</a></li>
+            <li><a href="/accounts" class="nav-link px-2">アカウント一覧</a></li>
+            <li><a href="/accounts/create" class="nav-link px-2">アカウント登録</a></li>
 
             <form method="POST" action="{{url('accounts/logout')}}">
                 @csrf
