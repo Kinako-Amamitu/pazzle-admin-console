@@ -17,6 +17,8 @@ class PlayerController extends Controller
         }
         //DBのすべての要素入手
         $users = User::all();
+        //1ページに10件表示
+        $users = User::paginate(10);
         return view('accounts/playerlist', ['accounts' => $users]);
     }
 }

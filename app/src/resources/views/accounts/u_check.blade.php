@@ -2,7 +2,8 @@
 <head>
     <title>Signin</title>
     <link rel="canonical" href="https://getbootstrap.jp/docs/5.3/examples/sign-in/">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="signin.css" rel="stylesheet">
 </head>
 <body>

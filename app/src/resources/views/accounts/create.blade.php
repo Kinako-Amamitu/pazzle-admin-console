@@ -3,7 +3,8 @@
 <head>
     <title>Signin</title>
     <link rel="canonical" href="https://getbootstrap.jp/docs/5.3/examples/sign-in/">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
@@ -33,8 +34,12 @@
     </div>
     <button class="btn btn-lg btn-primary btn-block" name="login_btn" type="submit">アカウントを登録</button>
     <input type="hidden" name="action" value="doLogin">
-    @if($errors=='登録完了！！')
-        <p>登録出来ました。</p>
+    @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
     @endif
     <p class="mt-5 mb-3 text-muted">&copy; 2024</p>
 </form>
@@ -44,7 +49,9 @@
 <script>
     window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 <script src="/docs/4.3/assets/js/vendor/anchor.min.js"></script>
 <script src="/docs/4.3/assets/js/vendor/clipboard.min.js"></script>
 <script src="/docs/4.3/assets/js/vendor/bs-custom-file-input.min.js"></script>

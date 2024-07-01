@@ -25,7 +25,10 @@ class AccountController extends Controller
     //アカウントを追加
     public function store(Request $request)
     {
-
+        $request->validate([
+            'name' => ['required', 'unique:accounts'],
+            'password' => ['min:4']
+        ]);
         Account::create(['name' => $request['name'], 'password' => Hash::make($request['password'])]);
         $compleat = '登録完了！！';
         return redirect()->route('accounts.create', ['errors' => $compleat]);
@@ -79,6 +82,8 @@ class AccountController extends Controller
     {
         //テーブルのすべてのレコードを取得
         $accounts = Account::ALL();
+        //1ページに10件表示
+        $accounts = Account::simplePaginate(10);
         return view('accounts/index', ['accounts' => $accounts]);
     }
 
