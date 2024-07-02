@@ -27,11 +27,10 @@ class AccountController extends Controller
     {
         $request->validate([
             'name' => ['required', 'unique:accounts'],
-            'password' => ['min:4']
+            'password' => ['min:4', 'required', 'confirmed']
         ]);
         Account::create(['name' => $request['name'], 'password' => Hash::make($request['password'])]);
-        $compleat = '登録完了！！';
-        return redirect()->route('accounts.create', ['errors' => $compleat]);
+        return redirect()->route('accounts.create');
     }
 
     //アカウント削除確認画面

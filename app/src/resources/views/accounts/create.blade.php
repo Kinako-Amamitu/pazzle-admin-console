@@ -9,11 +9,13 @@
 </head>
 <body class="text-center">
 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    <li><a href="/accounts/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
-    <li><a href="/accounts/itemlist" class="nav-link px-2">アイテム一覧</a></li>
-    <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
-    <li><a href="/accounts" class="nav-link px-2">ユーザー一覧</a></li>
-    <li><a href="/accounts/create" class="nav-link px-2">ユーザー登録</a></li>
+    <li><a href="/players/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
+    <li><a href="/items/itemlist" class="nav-link px-2">アイテム一覧</a></li>
+    <li><a href="/haves/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
+    <li><a href="/accounts" class="nav-link px-2">アカウント一覧</a></li>
+    <li><a href="/accounts/create" class="nav-link px-2">アカウント登録</a></li>
+    <li><a href="/mails" class="nav-link px-2">マスターデータ一覧</a></li>
+    <li><a href="/mails/user" class="nav-link px-2">ユーザーメール一覧</a></li>
 
     <form method="POST" action="{{url('accounts/logout')}}">
         @csrf
@@ -25,11 +27,16 @@
 </ul>
 <form class="form-signin" method="POST" action="{{url('accounts/store')}}">
     @csrf
-    <h1 class="h3 mb-3 font-weight-normal">アカウント登録</h1>
+    <div class="container text-center bg-primary-subtle" style="width: 500px">
+        <h2 class="display-5">▼アカウント登録▼</h2>
+    </div>
     <label for="inputEmail" class="sr-only">アカウント名</label>
     <input type="text" id="inputEmail" name="name" class="form-control" placeholder="アカウント名" required autofocus>
     <label for="inputPassword" class="sr-only">パスワード</label>
     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="パスワード" required>
+    <label for="inputPassword" class="sr-only">再入力</label>
+    <input type="password" id="inputPassword_confirmation" name="password_confirmation" class="form-control"
+           placeholder="パスワードの再入力" required>
     <div class="checkbox mb-3">
     </div>
     <button class="btn btn-lg btn-primary btn-block" name="login_btn" type="submit">アカウントを登録</button>

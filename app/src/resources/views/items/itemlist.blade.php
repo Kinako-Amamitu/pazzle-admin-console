@@ -12,7 +12,7 @@ header('X-FRAME-OPTIONS:DENY');
 </head>
 <body>
 @extends('layouts.app')
-@section('title','プレイヤー一覧')
+@section('title','アイテム一覧')
 @section('body')
     <div class="container">
         <header
@@ -27,11 +27,13 @@ header('X-FRAME-OPTIONS:DENY');
 
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="/accounts/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
-                <li><a href="/accounts/itemlist" class="nav-link px-2">アイテム一覧</a></li>
-                <li><a href="/accounts/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
+                <li><a href="/players/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
+                <li><a href="/items/itemlist" class="nav-link px-2">アイテム一覧</a></li>
+                <li><a href="/haves/havelist" class="nav-link px-2">所持アイテム一覧</a></li>
                 <li><a href="/accounts" class="nav-link px-2">アカウント一覧</a></li>
                 <li><a href="/accounts/create" class="nav-link px-2">アカウント登録</a></li>
+                <li><a href="/mails" class="nav-link px-2">マスターデータ一覧</a></li>
+                <li><a href="/mails/user" class="nav-link px-2">ユーザーメール一覧</a></li>
 
                 <form method="POST" action="{{url('accounts/logout')}}">
                     @csrf
@@ -44,30 +46,30 @@ header('X-FRAME-OPTIONS:DENY');
         </header>
     </div>
     <div class="container text-center bg-primary-subtle" style="width: 500px">
-        <h2 class="display-5">▼ プレイヤー一覧 ▼</h2>
+        <h2 class="display-5">▼ アイテム一覧 ▼</h2>
     </div>
-    {{$accounts->links('vendor.pagination.bootstrap-5')}}
-    <table class="table table-bordered mx-auto p-2" style="width: 60%">
 
+    <table class="table table-bordered mx-auto p-2" style="width: 60%">
         <tr>
             <th>ID</th>
-            <th>名前</th>
-            <th>レベル</th>
-            <th>経験値</th>
-            <th>ライフ</th>
+            <th>アイテム名</th>
+            <th>種類</th>
+            <th>効果</th>
+            <th>説明</th>
         </tr>
-
-
-        @foreach ($accounts as $playerdata)
+        @foreach ($accounts as $itemdata)
             <tr>
-                <td>{{$playerdata['id']}}</td>
-                <td>{{$playerdata['player_name']}}</td>
-                <td>{{$playerdata['level']}}</td>
-                <td>{{$playerdata['exp']}}</td>
-                <td>{{$playerdata['hp']}}</td>
+
+                <td>{{$itemdata['id']}}</td>
+                <td>{{$itemdata['item_name']}}</td>
+                <td>{{$itemdata['lot']}}</td>
+                <td>{{$itemdata['get']}}</td>
+                <td>{{$itemdata['explanation']}}</td>
+
             </tr>
         @endforeach
     </table>
+
     <script src="/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>

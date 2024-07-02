@@ -12,7 +12,7 @@ header('X-FRAME-OPTIONS:DENY');
 </head>
 <body>
 @extends('layouts.app')
-@section('title','ユーザー一覧')
+@section('title','メール一覧')
 @section('body')
     <div class="container">
         <header
@@ -24,6 +24,7 @@ header('X-FRAME-OPTIONS:DENY');
                     </svg>
                 </a>
             </div>
+
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/players/playerlist" class="nav-link px-2 ">プレイヤー一覧</a></li>
@@ -43,53 +44,39 @@ header('X-FRAME-OPTIONS:DENY');
                 </form>
             </ul>
         </header>
-
-
-        <div class="container text-center bg-primary-subtle" style="width: 500px">
-            <h2 class="display-5">▼ユーザー名▼</h2>
-        </div>
-        <table class="table table-bordered mx-auto p-2" style="width: 60%">
-            {{$accounts->links()}}
-            <tr>
-                <th>アカウント名</th>
-                <th>パスワードハッシュ</th>
-                <th>変更</th>
-            </tr>
-
-            @foreach ($accounts as $account)
-                <tr>
-
-
-                    <td>{{$account['name']}}</td>
-                    <td>{{$account['password']}}</td>
-                    <td>
-
-
-                        <form method="post" action="{{route('accounts.d_check')}}">
-                            @csrf
-                            <button type="submit" class="btn btn-secondary">削除</button>
-                            <input type="hidden" value="delete">
-                            <input type="hidden" name="id" value="{{$account['id']}}">
-                        </form>
-
-
-                        <form method="get" action="{{route('accounts.u_check')}}">
-                            @csrf
-                            <button type="submit" class="btn btn-secondary">更新</button>
-                            <input type="hidden" name="action" value="update">
-                            <input type="hidden" name="id" value="{{$account['id']}}">
-
-                        </form>
-                </tr>
-            @endforeach
-
-        </table>
-
-
-        <script src="/js/bootstrap.bundle.min.js"
-                integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-                crossorigin="anonymous"></script>
     </div>
+    <div class="container text-center bg-primary-subtle" style="width: 500px">
+        <h2 class="display-5">▼ マスターデータ一覧 ▼</h2>
+    </div>
+
+    <table class="table table-bordered mx-auto p-2" style="width: 60%">
+        <tr>
+            <th>ID</th>
+            <th>プレイヤー名</th>
+            <th>本文</th>
+            <th>アイテム</th>
+        </tr>
+        @foreach ($accounts as $account)
+            <tr>
+
+                <td>{{$account['id']}}</td>
+                <td>{{$account['player_name']}}</td>
+                <td>{{$account['Text']}}</td>
+                <td>{{$account['item']}}</td>
+
+            </tr>
+        @endforeach
+    </table>
+
+    <form method="get" action="{{route('mails.send')}}">
+        @csrf
+        <button type="submit" class="btn btn-secondary">メールを送信する</button>
+        <input type="hidden" value="delete">
+    </form>
+
+    <script src="/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
 @endsection
 </body>
 </html>

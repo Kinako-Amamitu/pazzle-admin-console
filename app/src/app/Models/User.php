@@ -10,4 +10,11 @@ class User extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function items()
+    {
+        return $this->belongsToMany(
+            item::class, 'user_items', 'user_id', 'item_id')
+            ->withPivot('amount');
+    }
 }

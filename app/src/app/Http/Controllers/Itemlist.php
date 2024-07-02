@@ -17,7 +17,7 @@ class Itemlist extends Controller
         }
         //条件を指定して入手
         $items = Item::all();
-        return view('accounts.itemlist', ['accounts' => $items]);
+        return view('items.itemlist', ['accounts' => $items]);
     }
 
 }

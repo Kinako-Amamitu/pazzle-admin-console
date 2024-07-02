@@ -4,6 +4,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Dologin;
 use App\Http\Controllers\Havelist;
 use App\Http\Controllers\Itemlist;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\NoCacheMiddleware;
@@ -14,10 +15,21 @@ Route::middleware(NoCacheMiddleware::class)->group(function () {
     Route::get('/', [Dologin::class, 'index']);
     Route::post('/', [Dologin::class, 'dologin'])->name('login');
     Route::post('accounts/logout', [Dologin::class, 'logout']);
-    Route::get('accounts/itemlist', [Itemlist::class, 'item']);
-    Route::get('accounts/playerlist', [PlayerController::class, 'index']);
-    Route::get('accounts/havelist', [Havelist::class, 'have']);
+    Route::get('items/itemlist', [Itemlist::class, 'item']);     //items/itemlist アイテム一覧表示
+    Route::get('players/playerlist', [PlayerController::class, 'index']); //players/playerlist プレイヤー一覧表示
+    Route::get('haves/havelist', [Havelist::class, 'have']); //haves/havelist 所持アイテム一覧表示
 
+
+    //メール関連
+    Route::prefix('mails')->name('mails.')->controller(MailController::class)
+        ->middleware(AuthMiddleware::class)->group(function () {
+            Route::get('/', 'index')->name('index'); //mails.master_data マスターデータ一覧表示
+            Route::get('user', 'user')->name('user'); //mails.user_mail_data ユーザーメールデータ一覧表示
+            Route::get('send', 'send')->name('send'); //mails.mail_send メール送信画面
+            Route::post('register', 'resister')->name('register'); //mails.mail_post メール送信処理
+        });
+
+    //アカウント関連グループ
     Route::prefix('accounts')->name('accounts.')->controller(AccountController::class)
         ->middleware(AuthMiddleware::class)->group(function () {
             Route::get('/', 'index')->name('index');        //accounts.index 一覧表示

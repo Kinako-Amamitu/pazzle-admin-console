@@ -19,6 +19,6 @@ class PlayerController extends Controller
         $users = User::all();
         //1ページに10件表示
         $users = User::paginate(10);
-        return view('accounts/playerlist', ['accounts' => $users]);
+        return view('players/playerlist', ['accounts' => $users]);
     }
 }
