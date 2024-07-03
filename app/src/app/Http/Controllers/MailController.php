@@ -42,7 +42,7 @@ class MailController extends Controller
     {
         $users = User::all();
         foreach ($users as $user) {
-            Mail::create(['id' => $user, 'subject_line' => $request['subject_line'], 'Text' => $request['Text']]);
+            User_mail::create(['id' => $user, 'item' => $request['item'], 'Text' => $request['Text']]);
         }
         return redirect()->route('mails.index');
     }

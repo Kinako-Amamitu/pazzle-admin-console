@@ -12,7 +12,9 @@ return new class extends Migration {
     {
         Schema::create('user_mails', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->integer('mail_id');
+            $table->boolean('item_get');
             $table->timestamps();
         });
     }

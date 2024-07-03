@@ -19,13 +19,14 @@ header('X-FRAME-OPTIONS:DENY');
     </div>
     <form class="form-signin" method="POST" action="{{route('mails.register')}}">
         @csrf
-        <label for="input_subject_line" class="sr-only">件名</label>
-        <input type="text" id="input_subject_line" name="subject_line" class="form-control" placeholder="件名"
-               required
-               autofocus>
+
         <label for="inputText" class="sr-only">本文</label>
         <input type="text" id="inputText" name="Text" class="form-control" placeholder="本文"
                required>
+        <label for="input_item" class="sr-only">アイテム</label>
+        <input type="text" id="input_item" name="subject_line" class="form-control" placeholder="アイテム"
+               required
+               autofocus>
         <div class="checkbox mb-3">
         </div>
         <button class="btn btn-lg btn-primary btn-block" name="login_btn" type="submit">メールを送信</button>

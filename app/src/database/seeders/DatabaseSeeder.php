@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemsTableSeeder::class);
         $this->call(PlayerTableSeeder::class);
         $this->call(HaveTableSeeder::class);
+        $this->call(MailsTableSeeder::class);
+        $this->call(UserMailsTableSeeder::class);
 
     }
 }

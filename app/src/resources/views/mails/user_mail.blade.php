@@ -66,11 +66,7 @@ header('X-FRAME-OPTIONS:DENY');
         @endforeach
     </table>
 
-    <form method="get" action="{{route('mails.send')}}">
-        @csrf
-        <button type="submit" class="btn btn-secondary">メールを送信する</button>
-        <input type="hidden" value="delete">
-    </form>
+    
 
     <script src="/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

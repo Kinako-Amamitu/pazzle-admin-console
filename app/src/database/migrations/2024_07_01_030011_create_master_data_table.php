@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('masters', function (Blueprint $table) {
             $table->id();
             $table->string('Text');
-            $table->string('item');
+            $table->integer('item_id');
             $table->timestamps();
         });
     }
