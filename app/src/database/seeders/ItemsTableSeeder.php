@@ -21,6 +21,13 @@ class ItemsTableSeeder extends Seeder
             'get' => 100,
             'explanation' => '体力を回復',
         ]);
+
+        Item::create([
+            'item_name' => '火炎びん',
+            'lot' => '消耗品',
+            'get' => 50,
+            'explanation' => '敵にダメージを与える',
+        ]);
     }
 
 }

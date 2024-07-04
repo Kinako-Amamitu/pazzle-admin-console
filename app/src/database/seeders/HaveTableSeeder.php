@@ -15,6 +15,8 @@ class HaveTableSeeder extends Seeder
     {
         //所持アイテム一覧
         Have::create([
+            'user_id' => 1,
+            'item_id' => 1,
             'have' => 10,
         ]);
     }

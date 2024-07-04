@@ -10,4 +10,9 @@ class Master extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function mails()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

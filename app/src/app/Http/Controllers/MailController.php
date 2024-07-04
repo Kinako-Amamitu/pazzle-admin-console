@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item;
 use App\Models\Mail;
 use App\Models\Master;
 use App\Models\User;
 use App\Models\User_mail;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
+use Termwind\Components\Dd;
 
 class MailController extends Controller
 {
@@ -14,20 +17,19 @@ class MailController extends Controller
     public function index(Request $request)
     {
 
-        //DBから入手
-        $mails = Master::all();
+        //モデル取得
+        $mails = Master::join('items', 'masters.item_id', '=', 'items.id')
+            ->select('Text', 'item_name', 'masters.id')->get();
 
-        return view('mails.master_data', ['accounts' => $mails]);
+        return view('mails.master_data', ['mails' => $mails]);
     }
 
     //ユーザーデータの取得
     public function user(Request $request)
     {
 
-        //DBから入手
-        $users = User_mail::all();
-
-        return view('mails.user_mail', ['accounts' => $users]);
+        $user = Master::all();
+        return view('mails.user_mail', ['users' => $user]);
     }
 
     //メール送信画面
@@ -40,10 +42,10 @@ class MailController extends Controller
     //メール送信処理
     public function resister(Request $request)
     {
-        $users = User::all();
-        foreach ($users as $user) {
-            User_mail::create(['id' => $user, 'item' => $request['item'], 'Text' => $request['Text']]);
-        }
+        User_mail::create([
+            ['mail_id' => $request['mail_id']],
+            ['item_id' => $request['item_id']]
+        ]);
         return redirect()->route('mails.index');
     }
 }

@@ -13,6 +13,8 @@ return new class extends Migration {
         //所持アイテム一覧
         Schema::create('haves', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->integer('item_id');
             $table->integer('have');
             $table->timestamps();
         });

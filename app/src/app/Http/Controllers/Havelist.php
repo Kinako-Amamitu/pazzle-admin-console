@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Have;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Havelist extends Controller
@@ -15,21 +16,9 @@ class Havelist extends Controller
             return redirect('/');
         }
         //モデル取得
-        $user = Have::find(1);
+        $user = User::find(1);
 
-        //関連モデルからデータの取得
-        //foreach ($user->items as $item) {
-        // echo $user->name;
-        // echo $item->name;
-        // echo $item->pivot->amount;
-        //}
-        //テーブル結合してDBから入手
-        $haves = Have::join('users', 'haves.id', '=', 'users.id')
-            ->join('items', 'haves.id', '=', 'items.id')
-            ->select('haves.id', 'users.player_name', 'items.item_name', 'haves.have')
-            ->get();
-
-        return view('haves/havelist', ['accounts' => $haves]);
+        return view('haves/havelist', ['users' => $user]);
     }
 
 }

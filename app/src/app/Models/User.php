@@ -14,7 +14,12 @@ class User extends Model
     public function items()
     {
         return $this->belongsToMany(
-            item::class, 'user_items', 'user_id', 'item_id')
-            ->withPivot('amount');
+            item::class, 'haves', 'user_id', 'item_id')
+            ->withPivot('have');
+    }
+
+    public function masters()
+    {
+        return $this->hasMany(Master::class);
     }
 }

@@ -7,7 +7,8 @@
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="signin.css" rel="stylesheet">
 </head>
-<body class="text-center">@if($errors->any())
+<body class="text-center">
+@if($errors->any())
     <ul>
         @foreach($errors->all() as $error)
             <li>{{$error}}</li>
