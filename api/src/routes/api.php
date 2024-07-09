@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\NoCacheMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,6 @@ Route::middleware(NoCacheMiddleware::class)->group(function () {
         ->name('users/update');
 
     Route::get('item',
-        [UserController::class, 'index'])
+        [ItemController::class, 'index'])
         ->name('item');
 });
