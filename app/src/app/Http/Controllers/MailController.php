@@ -24,12 +24,17 @@ class MailController extends Controller
         return view('mails.master_data', ['mails' => $mails]);
     }
 
-    //ユーザーデータの取得
+    //ユーザーメールデータの取得
     public function user(Request $request)
     {
 
-        $user = Master::all();
-        return view('mails.user_mail', ['users' => $user]);
+        $users = User::find($request->id);
+        if (!empty($user)) {
+            $mails = $user->mails()->paginate(2);
+            $mails->appends(["id" => $request->id]);
+        }
+        return view('mails.user_mail', ['users' => $users ?? null]);
+
     }
 
     //メール送信画面
@@ -42,10 +47,17 @@ class MailController extends Controller
     //メール送信処理
     public function resister(Request $request)
     {
-        User_mail::create([
-            ['mail_id' => $request['mail_id']],
-            ['item_id' => $request['item_id']]
+        //バリデーション
+        $validated = $request->validate([
+            'user_id' => ['required'],
+            'mail_id' => ['required']
         ]);
-        return redirect()->route('mails.index');
+
+        User_mail::create([
+            'user_id' => $request['user_id'],
+            'mail_id' => $request['mail_id'],
+            'item_get' => 0
+        ]);
+        return redirect()->route('mails.index', ['user_id' => $request['user_id'], 'mail_id' => $request['mail_id']]);
     }
 }

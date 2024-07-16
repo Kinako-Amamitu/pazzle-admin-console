@@ -6,7 +6,7 @@ use App\Http\Middleware\NoCacheMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(NoCacheMiddleware::class)->group(function () {
-    Route::get('users', [UserController::class, 'show'])
+    Route::get('users/{user_id}', [UserController::class, 'show'])
         ->name('users.show');
 
     Route::get('users', [UserController::class, 'index'])
@@ -15,7 +15,6 @@ Route::middleware(NoCacheMiddleware::class)->group(function () {
     Route::post('users/store',
         [UserController::class, 'store'])
         ->name('users/store');
-
 
     Route::post('users/update',
         [UserController::class, 'update'])

@@ -24,7 +24,7 @@ Route::middleware(NoCacheMiddleware::class)->group(function () {
     Route::prefix('mails')->name('mails.')->controller(MailController::class)
         ->middleware(AuthMiddleware::class)->group(function () {
             Route::get('/', 'index')->name('index'); //mails.master_data マスターデータ一覧表示
-            Route::get('user', 'user')->name('user'); //mails.user_mail_data ユーザーメールデータ一覧表示
+            Route::get('user', 'user')->name('user'); //mails.userユーザーメールデータ一覧表示
             Route::get('send', 'send')->name('send'); //mails.mail_send メール送信画面
             Route::post('register', 'resister')->name('register'); //mails.mail_post メール送信処理
         });

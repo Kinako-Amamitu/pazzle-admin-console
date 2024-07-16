@@ -22,4 +22,9 @@ class User extends Model
     {
         return $this->hasMany(Master::class);
     }
+
+    public function mails()
+    {
+        return $this->hasMany(User_mail::class);
+    }
 }

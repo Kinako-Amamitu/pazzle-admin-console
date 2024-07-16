@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -26,13 +25,13 @@ class UserController extends Controller
 
     public function show(Request $request)
     {
-        $user = User::where($request->user_i);
-        $response = [
+        $user = User::findOrFail($request->user_id);
+        /*$response = [
             "player" => [
                 "detail" => $user
             ]
-        ];
-        return response()->json(UserResource::collection($user));
+        ];*/
+        return response()->json(UserResource::make($user));
     }
 
     public function store(Request $request)
