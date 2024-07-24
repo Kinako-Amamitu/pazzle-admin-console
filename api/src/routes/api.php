@@ -23,4 +23,6 @@ Route::middleware(NoCacheMiddleware::class)->group(function () {
     Route::get('item',
         [ItemController::class, 'index'])
         ->name('item');
+
 });
+
