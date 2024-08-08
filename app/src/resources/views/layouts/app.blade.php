@@ -26,6 +26,7 @@
             <li><a href="/accounts/create" class="nav-link px-2">アカウント登録</a></li>
             <li><a href="/mails" class="nav-link px-2">マスターデータ一覧</a></li>
             <li><a href="/mails/user" class="nav-link px-2">ユーザーメール一覧</a></li>
+            <li><a href="{{route('friendsfriendList')}}" class="nav-link px-2">フォロー一覧</a></li>
 
             <form method="POST" action="{{url('accounts/logout')}}">
                 @csrf

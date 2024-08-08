@@ -9,8 +9,9 @@ return new class extends Migration {
     {
         Schema::create('frends', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
-            $table->string('frend_name');
+            $table->integer('user_id');
+            $table->integer('follow_user_id');
+            $table->boolean('follow_check');
             $table->timestamps();
         });
     }

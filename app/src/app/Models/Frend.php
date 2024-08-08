@@ -6,4 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Frend extends Model
 {
+    protected $guarded = ['id'];
 }

@@ -27,4 +27,10 @@ class User extends Model
     {
         return $this->hasMany(User_mail::class);
     }
+
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'frends', 'user_id', 'follow_user_id')
+            ->withPivot('follow_check');
+    }
 }

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HaveTableSeeder::class);
         $this->call(MailsTableSeeder::class);
         $this->call(UserMailsTableSeeder::class);
+        $this->call(FollowListSeeder::class);
 
     }
 }

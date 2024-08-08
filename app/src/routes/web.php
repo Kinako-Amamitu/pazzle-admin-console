@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Dologin;
+use App\Http\Controllers\FrendController;
 use App\Http\Controllers\Havelist;
 use App\Http\Controllers\Itemlist;
 use App\Http\Controllers\MailController;
@@ -41,5 +42,12 @@ Route::middleware(NoCacheMiddleware::class)->group(function () {
             Route::post('update', 'update')->name('update');   //accounts.update 更新処理
             Route::post('cancel', 'cancel')->name('cancel');   //accounts.cancel キャンセル処理
             Route::post('update_end', 'update_end')->name('update_end');   //accounts.update_end更新完了処理
+        });
+
+    Route::prefix('friends')->name('friends')->controller(FrendController::class)
+        ->middleware(AuthMiddleware::class)
+        ->group(function () {
+
+            Route::get('friendList', 'index')->name('friendList'); //friends.friendList
         });
 });
