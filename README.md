@@ -15,7 +15,7 @@ https://apps.apple.com/jp/app/id6608961612
 * Unity
 
 # システムの全体構成図
-![JUELHUNTER]()
+![JUELHUNTER](https://github.com/Kinako-Amamitu/pazzle-admin-console/blob/master/img/git/ERz.PNG?raw=true)
 # 機能、非機能一覧
 
 ## 機能
