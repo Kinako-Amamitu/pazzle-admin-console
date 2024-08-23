@@ -2,7 +2,7 @@
 スマートフォン向けに開発したパズルゲーム同じ色のジュエルを3つ揃えると回収
 依頼されたジュエルを納品し依頼を達成しよう
 
-![JUELHUNTER]()
+![JUELHUNTER](https://github.com/Kinako-Amamitu/pazzle-admin-console/blob/master/img/git/Update_Now.png?raw=true)
   
 # インストール方法
 https://apps.apple.com/jp/app/id6608961612
