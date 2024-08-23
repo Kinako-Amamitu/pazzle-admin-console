@@ -15,7 +15,7 @@ https://apps.apple.com/jp/app/id6608961612
 * Unity
 
 # システムの全体構成図
-![JUELHUNTER](C:\Users\student\Desktop)
+![JUELHUNTER]()
 # 機能、非機能一覧
 
 ## 機能
