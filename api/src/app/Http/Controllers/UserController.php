@@ -37,7 +37,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-            'name' => $request->name,
+            'player_name' => $request->name,
+            'level' => 1,
+            'exp' => 0,
+            'hp' => 10
         ]);
         return response()->json(['user_id' => $user->id]);
     }

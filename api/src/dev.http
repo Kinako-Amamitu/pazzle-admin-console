@@ -25,5 +25,5 @@ Content-Type: application/json
 Accept:application/json
 
 {
-    "user_id":
+    "password": 6666
 }
