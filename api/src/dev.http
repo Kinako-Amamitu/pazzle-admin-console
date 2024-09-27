@@ -1,5 +1,5 @@
 ### ユーザー情報取得
-GET http://localhost:8000/api/users/1
+GET https://api-juelhunter.japaneast.cloudapp.azure.com/api/users/102
 Accept: application/json
 
 ### ユーザー一覧取得(level)
@@ -11,12 +11,12 @@ GET http://localhost:8000/api/item
 Accept: application/json
 
 ### ユーザー登録
-POST http://localhost:8000/api/users/store
+POST https://api-juelhunter.japaneast.cloudapp.azure.com/api/users/store
 Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "jobi"
+    "name": "jobi2"
 }
 
 ### ユーザー更新
@@ -27,3 +27,10 @@ Accept:application/json
 {
     "password": 6666
 }
+
+### フレンドリスト
+GET  http://localhost:8000/api/friend/index
+Content-Type: application/json
+Accept:application/json
+
+
