@@ -2,10 +2,10 @@
 スマートフォン向けに開発したパズルゲーム同じ色のジュエルを3つ揃えると消える  
 依頼されたジュエルを消し、世界にジュエルがあふれるのを阻止しよう
 
-![JUELHUNTER](https://github.com/Kinako-Amamitu/pazzle-admin-console/blob/master/img/git/Update_Now.png?raw=true)
+![JUELHUNTER](https://github.com/Kinako-Amamitu/pazzle-admin-console/blob/master/img/git/Juel.png?raw=true)
   
 # インストール方法
-https://apps.apple.com/jp/app/id6608961612
+https://apps.apple.com/jp/app/juelhunter/id6714466273
 
 # 使用技術
 * PHP(使用フレームワーク:Lalavel)
