@@ -1,5 +1,5 @@
 ### ユーザー情報取得
-GET https://api-juelhunter.japaneast.cloudapp.azure.com/api/users/111
+GET https://api-juelhunter.japaneast.cloudapp.azure.com/api/users/102
 Accept: application/json
 
 ### ユーザー一覧取得(level)
@@ -30,11 +30,6 @@ Accept:application/json
 
 ### フレンドリスト
 GET  http://localhost:8000/api/friend/index
-Content-Type: application/json
-Accept:application/json
-
-### ランキングリスト
-GET  http://localhost:8000/api/ranking/index
 Content-Type: application/json
 Accept:application/json
 
