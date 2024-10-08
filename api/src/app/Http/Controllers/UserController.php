@@ -42,13 +42,17 @@ class UserController extends Controller
             'exp' => 0,
             'hp' => 10
         ]);
-        return response()->json(['user_id' => $user->id]);
+        // APIトークンを発行する
+        $token = $user->createToken($request->name)->plainTextToken;
+        // ユーザーIDとAPIトークンを返す
+        return response()->json(['user_id' => $user->id, 'token' => $token]);
     }
 
     public function update(Request $request)
     {
 
         $user = User::findOrFail();
+        $user->name = "Yamaguti";
         $user->save();
 
         return response()->json();
