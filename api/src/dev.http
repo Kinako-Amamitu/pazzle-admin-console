@@ -1,7 +1,7 @@
 ### ユーザー情報取得
-GET http://localhost:8000/api/users/102
+GET http://localhost:8000/api/users/1
 Accept: application/json
-Authorization: Bearer 1|0QkCf5MrjreqkyYH7QI8BWZ8MAO8YMQpgL0yQVms80a49f8b
+Authorization: Bearer 7|CeNpJO7LX2GQQERWTeZhHt21nZP2AJcsaf89wugT06972d66
 
 ### ユーザー一覧取得(level)
 GET http://localhost:8000/api/users?min_level=3&max_level=9
@@ -11,22 +11,33 @@ Accept: application/json
 GET http://localhost:8000/api/item
 Accept: application/json
 
-### ユーザー登録
+### ユーザー登録(Azure)
 POST https://api-juelhunter.japaneast.cloudapp.azure.com/api/users/store
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer 1|0QkCf5MrjreqkyYH7QI8BWZ8MAO8YMQpgL0yQVms80a49f8b //ユーザー認証
 
 {
     "name": "jobi2"
 }
 
-### ユーザー登録
+### ユーザー登録(local)
 POST http://localhost:8000/api/users/store
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|0QkCf5MrjreqkyYH7QI8BWZ8MAO8YMQpgL0yQVms80a49f8b //ユーザー認証
+
+{
+    "name": "jobi2"
+}
+
+### 既存ユーザーのトークン生成(local)
+POST http://localhost:8000/api/users/createToken
 Content-Type: application/json
 Accept: application/json
 
 {
-    "name": "jobi2"
+    "user_id": 1
 }
 
 ### ユーザー更新
@@ -36,7 +47,7 @@ Accept:application/json
 Authorization: Bearer 1|0QkCf5MrjreqkyYH7QI8BWZ8MAO8YMQpgL0yQVms80a49f8b //ユーザー認証
 
 {
-    "name": "superjobi"
+    "name": "super_jobi"
 }
 
 ### フレンドリスト
@@ -48,14 +59,16 @@ Accept:application/json
 GET http://localhost:8000/api/ranking/index/1
 Content-Type: application/json
 Accept:application/json
+Authorization: Bearer 1|WAcEDwrEAsXgFJBzLE1Fm1dB7fFxVzQaGquTI2jS4dd45a96 //ユーザー認証
 
 ### ランキング登録
-POST http://api-juelhunter.japaneast.cloudapp.azure.com/api/ranking/store
+POST http://localhost:8000/api/ranking/store
 Content-Type: application/json
 Accept:application/json
+Authorization: Bearer 1|WAcEDwrEAsXgFJBzLE1Fm1dB7fFxVzQaGquTI2jS4dd45a96 //ユーザー認証
 
 {
-    "user_id": 4,
+    "user_id": 102,
     "stage_id": 1,
-    "score": 5000
+    "score": 1250
 }

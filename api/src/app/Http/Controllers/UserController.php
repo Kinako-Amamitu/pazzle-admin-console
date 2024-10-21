@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Laravel\Sanctum\PersonalAccessToken;
+use LaravelIdea\Helper\Laravel\Sanctum\_IH_PersonalAccessToken_C;
 
 class UserController extends Controller
 {
@@ -56,5 +58,20 @@ class UserController extends Controller
         $user->save();
 
         return response()->json();
+    }
+
+    public function createToken(Request $request)
+    {
+        $token = PersonalAccessToken::where('tokenable_id', '=', $request->user_id)->first();
+
+        if ($token == null) {
+            $user = User::findOrFail(($request->user_id));
+            //APIトークンを発行する
+            $token = $user->createToken($user->player_name)->plainTextToken;
+            //ユーザーIDとAPIトークンを返す
+            return response()->json(['user_id' => $user->id, 'token' => $token]);
+        } else {
+            return response()->json();
+        }
     }
 }

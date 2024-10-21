@@ -14,7 +14,7 @@ class RankingController extends Controller
         //$ranking = Ranking::all();
 
         //指定のステージのみを取り出す
-        $ranking = Ranking::where('stage_id', '=', $request->stage_id)->get();
+        $ranking = Ranking::where('stage_id', '=', $request->stage_id)->orderByDesc('score')->get();
 
         return response()->json(RankingResource::collection($ranking));
     }
@@ -26,7 +26,7 @@ class RankingController extends Controller
 
         if (empty($ranking)) {
             $ranking = Ranking::create([
-                'user_id' => $request->user_id,
+                'user_id' => $request->user()->id,
                 'stage_id' => $request->stage_id,
                 'score' => $request->score
             ]);
@@ -36,6 +36,6 @@ class RankingController extends Controller
         }
 
 
-        return response()->json();
+        return response()->json($ranking);
     }
 }
