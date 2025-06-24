@@ -6,6 +6,7 @@
   
 # インストール方法
 https://apps.apple.com/jp/app/juelhunter/id6714466273
+https://play.google.com/store/apps/details?id=com.yoshidahcc.JuelHunter
 
 # 使用技術
 * PHP(使用フレームワーク:Lalavel)
