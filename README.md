@@ -15,6 +15,11 @@
 * C#
 * Unity
 
+# クライアントのプログラム概要
+ジュエルの同じ色が3つ揃って消える際にはまずレール内に入ったジュエルは左右にRayを飛ばしてそこに同じ色のジュエル
+があるかを確認する。同じ色ならばジュエル2つの両端に別のRayを飛ばして同じ色のジュエルがあるかを判定する。
+同じ色のジュエルがこのように３つそろった時、ジュエルが消える。
+
 # システムの全体構成図
 ![JUELHUNTER](https://github.com/Kinako-Amamitu/pazzle-admin-console/blob/master/img/git/ERz.PNG?raw=true)
 # 機能、非機能一覧
