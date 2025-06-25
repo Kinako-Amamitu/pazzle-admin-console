@@ -20,6 +20,10 @@
 があるかを確認する。同じ色ならばジュエル2つの両端に別のRayを飛ばして同じ色のジュエルがあるかを判定する。
 同じ色のジュエルがこのように３つそろった時、ジュエルが消える。
 
+# サーバーのプログラム概要
+NetworkManagerを使い、ユーザー登録取得、ランキング登録取得を行っている。クライアントがデータを送ったらレスポンスを
+返す仕組み。
+
 # システムの全体構成図
 ![JUELHUNTER](https://github.com/Kinako-Amamitu/pazzle-admin-console/blob/master/img/git/ERz.PNG?raw=true)
 # 機能、非機能一覧
